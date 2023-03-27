@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :hero_powers, only: [:create]
-  resources :powers, only [:index,:show,:update]
+  resources :powers, only: [:index,:show,:update]
   # resources :heros
   get '/heroes', to:"heros#index"
   get '/heroes/:id', to:"heros#show"
