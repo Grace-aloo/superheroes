@@ -14,7 +14,7 @@ class PowersController < ApplicationController\
 
     def update 
         power = find_power
-        power.update(power_params)
+        power.update!(power_params)
         render json: power, status: :accepted
     end
 
