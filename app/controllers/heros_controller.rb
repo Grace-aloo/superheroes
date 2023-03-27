@@ -8,7 +8,7 @@ class HerosController < ApplicationController
 
     def show 
         hero = find_hero
-        render json: hero
+        render json: hero, include_powers: true
     end
 
     private 
@@ -16,7 +16,7 @@ class HerosController < ApplicationController
         render json: {error: "Hero not found"}, status: :not_found
     end
 
-    def find_power
+    def find_hero
         Hero.find(params[:id])
     end
 end

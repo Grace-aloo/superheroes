@@ -1,15 +1,15 @@
-class PowersController < ApplicationController\
+class PowersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-    def Index 
+    def index 
         powers = Power.all 
-        response json: powers
+        render json: powers
     end
 
     def show 
         power = find_power
-        render json: power
+        render json: power, include_heros: true
     end
 
     def update 

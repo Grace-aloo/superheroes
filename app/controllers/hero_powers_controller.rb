@@ -3,7 +3,7 @@ class HeroPowersController < ApplicationController
 
     def create 
         hp = HeroPower.create!(hp_params)
-        render json: hp.hero, status: :created
+        render json: hp.hero, include_powers: true, status: :created
     end
 
 
